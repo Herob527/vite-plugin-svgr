@@ -1,6 +1,5 @@
 import type { Config } from "@svgr/core";
 import fs from "fs";
-import { transform as swcTransform } from '@swc/core'
 import { createFilter, type FilterPattern, type Plugin } from "vite";
 
 export interface VitePluginSvgrOptions {
@@ -26,6 +25,7 @@ export default function vitePluginSvgr({
       if (filter(id)) {
         const { transform } = await import("@svgr/core");
         const { default: jsx } = await import("@svgr/plugin-jsx");
+        const { transform: swcTransform } = await import('@swc/core')
 
         const filePath = id.replace(postfixRE, "");
         const svgCode = await fs.promises.readFile(filePath, "utf8");
