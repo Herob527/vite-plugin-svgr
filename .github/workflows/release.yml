@@ -26,7 +26,7 @@ jobs:
           node-version: 22
           registry-url: 'https://npm.pkg.github.com'
           cache: 'pnpm'
-          scope: '@herob191'
+          scope: '@Herob527'
 
       - name: Install dependencies
         run: pnpm install

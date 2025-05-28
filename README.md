@@ -15,20 +15,20 @@ After vite is released with rolldown, perhaps there will be some transformWithRo
 
 ```sh
 # npm
-npm install --save-dev @herob191/vite-plugin-svgr
+npm install --save-dev @Herob527/vite-plugin-svgr
 
 # yarn
-yarn add -D @herob191/vite-plugin-svgr
+yarn add -D @Herob527/vite-plugin-svgr
 
 # pnpm
-pnpm add -D @herob191/vite-plugin-svgr
+pnpm add -D @Herob527/vite-plugin-svgr
 ```
 
 ## Usage
 
 ```js
 // vite.config.js
-import svgr from "@herob191/vite-plugin-svgr";
+import svgr from "@Herob527/vite-plugin-svgr";
 
 export default {
   // ...
