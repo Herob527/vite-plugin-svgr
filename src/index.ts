@@ -2,18 +2,16 @@ import { createFilter, FilterPattern } from "@rollup/pluginutils";
 import type { Config } from "@svgr/core";
 import fs from "fs";
 import type { Plugin } from "vite";
-import { transformWithEsbuild } from "vite";
+import { transform as swcTransform } from '@swc/core'
 
 export interface VitePluginSvgrOptions {
   svgrOptions?: Config;
-  esbuildOptions?: Parameters<typeof transformWithEsbuild>[2];
   exclude?: FilterPattern;
   include?: FilterPattern;
 }
 
 export default function vitePluginSvgr({
   svgrOptions,
-  esbuildOptions,
   include = "**/*.svg?react",
   exclude,
 }: VitePluginSvgrOptions = {}): Plugin {
@@ -38,14 +36,20 @@ export default function vitePluginSvgr({
           },
         });
 
-        const res = await transformWithEsbuild(componentCode, id, {
-          loader: "jsx",
-          ...esbuildOptions,
-        });
+        const swcRes = await swcTransform(componentCode, {
+          filename: id,
+          sourceMaps: true,
+          jsc: {
+            parser: {
+              syntax: 'ecmascript',
+              jsx: true
+            }
+          }
+        })
 
         return {
-          code: res.code,
-          map: null, // TODO:
+          code: swcRes.code,
+          map: swcRes.map
         };
       }
     },
