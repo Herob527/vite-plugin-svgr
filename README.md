@@ -7,6 +7,10 @@ Vite plugin to transform SVGs into React components. Uses [svgr](https://github.
 Original repo is [here](https://github.com/pd4d10/vite-plugin-svgr).
 I made some adjustments, so it might be better compatible with rolldown-vite
 
+Primarily, I replaced transformWithEsbuild with swc to avoid indirect dependency with it
+
+After vite is released with rolldown, perhaps there will be some transformWithRolldown stuff
+
 ## Installation
 
 ```sh
