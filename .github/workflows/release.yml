@@ -30,6 +30,6 @@ jobs:
       - name: Install dependencies
         run: pnpm install
 
-      - run: npm publish --provenance --access public
+      - run: npm publish --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
