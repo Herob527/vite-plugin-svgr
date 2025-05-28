@@ -20,7 +20,10 @@
     "build": "tsc --module commonjs && mv dist/index.js dist/index.cjs && tsc",
     "prepare": "npm run build"
   },
-  "repository": "Herob527/vite-plugin-svgr",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Herob527/vite-plugin-svgr.git"
+  },
   "files": [
     "dist",
     "client.d.ts",
